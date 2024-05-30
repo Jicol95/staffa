@@ -18,6 +18,7 @@ pub fn handle_request(req: Request) -> Response {
 
 fn hello_world(req: Request) {
   use <- wisp.require_method(req, Get)
+
   let response = string_builder.from_string("Hello, World!")
 
   wisp.ok()

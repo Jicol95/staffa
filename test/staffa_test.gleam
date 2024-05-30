@@ -34,3 +34,17 @@ pub fn hello_name_test() {
   |> testing.string_body
   |> should.equal("Hello, Jack!")
 }
+
+pub fn hello_name_capitalise_name_test() {
+  let response = router.handle_request(testing.get("/jack", []))
+
+  response.status
+  |> should.equal(200)
+
+  response.headers
+  |> should.equal([#("content-type", "application/json")])
+
+  response
+  |> testing.string_body
+  |> should.equal("Hello, Jack!")
+}

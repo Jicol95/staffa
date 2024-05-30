@@ -1,4 +1,5 @@
 import gleam/http.{Get}
+import gleam/string
 import gleam/string_builder
 import staffa/web
 import wisp.{type Request, type Response}
@@ -30,7 +31,7 @@ fn hello_name(req: Request, name: String) {
 
   let response =
     string_builder.from_string("Hello, ")
-    |> string_builder.append(name)
+    |> string_builder.append(string.capitalise(name))
     |> string_builder.append("!")
 
   wisp.ok()
